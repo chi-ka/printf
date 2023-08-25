@@ -12,11 +12,12 @@
 
 int _printf(const char *format, ...) 
 {
+	int num;
+	int charCount;
 	va_list args;
-	int charCount; 
-	
+
 	va_start(args, format);
-	charCount = 0; 
+	charCount = 0;
 
 	while (*format != '\0')
 	{
@@ -33,16 +34,23 @@ int _printf(const char *format, ...)
 						charCount++;
 						break;
 					}
-				case 's': 
+				case 's':
 					{
-						char *s; 
+						char *s ;
 						s = va_arg(args, char *);
-						while (*s != '\0') 
-						{
-							_putchar(*s);
-							s++;
-							charCount++;
-						}
+						charCount += print_s(s,charCount);
+						break;
+					}
+				case ('d'):
+					{
+						num = va_arg(args, int);
+						charCount += print_i_d(num, charCount);
+						break;
+					}
+				case ('i'):
+					{
+						num = va_arg(args, int);
+						charCount += print_i_d(num, charCount);
 						break;
 					}
 				case '%':
@@ -63,7 +71,5 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return charCount;
+	return (charCount);
 }
-
-

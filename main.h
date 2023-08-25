@@ -21,5 +21,7 @@ void append_string_to_buffer(const char *s, char *buffer, int *index);
 int _atoi(const char *str);
 int _printf(const char *format, ...);
 int _putchar(int c);
+int print_s(char *s, int charCount);
+int print_i_d(int num,int charCount);
 
 #endif 
