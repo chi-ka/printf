@@ -3,29 +3,45 @@
 
 int print_i_d(int num,int charCount)
 {
-    int divisor;
-    int digit;
-    divisor = 1;
-        
-    if (num < 0)
-    {
-        _putchar('-');
-        charCount++;
-        num = -num;
-    }
+	int i;
+	int divisor;
+	int digit;
+	int numDigits;
+	int tempNum;
 
-    while (num / divisor > 9)
-    {
-        divisor *= 10;
-    }
-    while (divisor > 0)
-    {
-        digit = num / divisor;
-        _putchar('0' + digit);
-        charCount++;
-        num %= divisor;
-        divisor /= 10;
-    }
-    
-    return (charCount);
+	divisor = 1;
+	if (num == INT_MIN) 
+	{
+		_putchar('-');
+		charCount++;
+		num = -(num + 1);
+	}
+	if (num < 0)
+	{
+		_putchar('-');
+		charCount++;
+		num = -num;
+	}
+	numDigits = (num == 0) ? 1 : 0;
+	tempNum = num;
+	while (tempNum > 0)
+	{
+		tempNum /= 10;
+		numDigits++;
+	}
+	charCount += numDigits;
+
+	divisor = 1;
+	for (i = 1; i < numDigits; i++)
+	{
+		divisor *= 10;
+	}
+	while (divisor > 0)
+	{
+		digit = num / divisor;
+		_putchar('0' + digit);
+		num %= divisor;
+		divisor /= 10;
+	}
+	return (charCount);
 }

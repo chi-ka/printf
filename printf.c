@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 						charCount++;
 						break;
 					}
-			}
+			}			
 		}
 		else
 		{
