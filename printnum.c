@@ -13,6 +13,11 @@ void printnum_to_buffer(int x, char *buffer, int *index)
 {
 	int a = x;
 
+	if (num == INT_MIN)
+	{
+		buffer[(*index)++] = '-';
+		a = -(a + 1);
+	{
 	if (a < 0)
 	{
 		buffer[(*index)++] = '-';
