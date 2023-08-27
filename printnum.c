@@ -17,7 +17,7 @@ void printnum_to_buffer(int x, char *buffer, int *index)
 	{
 		buffer[(*index)++] = '-';
 		a = -(a + 1);
-	{
+	}
 	if (a < 0)
 	{
 		buffer[(*index)++] = '-';
@@ -29,4 +29,3 @@ void printnum_to_buffer(int x, char *buffer, int *index)
 	}
 	buffer[(*index)++] = (a % 10) + '0';
 }
-
